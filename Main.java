@@ -17,6 +17,10 @@ public class Main {
         return Math.asin(Math.cos(Math.asin(Math.pow(Math.E, Math.PI/2/Math.abs(x)*Math.PI/2/Math.abs(x))/3)));
     }
     
+    static double RandomDouble(double from, double to){
+        return Math.random() * (to-from) + from;
+    }
+
     public static void main(String[] args) {
         final double lowerEdge = -8.0;
         final double upperEdge = 10.0;
@@ -28,7 +32,7 @@ public class Main {
         for(int i=0, j=7; i<d.length; i++, j+=2)
             d[i]=j;
         for(int i=0; i<x.length; i++)
-            x[i]= Math.random() * (upperEdge-lowerEdge) + lowerEdge;
+            x[i]= RandomDouble(lowerEdge, upperEdge);
         
         for(int i=0; i< d2.length; i++){
             for(int j=0; j< d2[i].length; j++){
@@ -37,11 +41,11 @@ public class Main {
                 else d2[i][j]=func3(x[j]);
             }
         }
-        DecimalFormat decFormat = new DecimalFormat("#.####");
-        for(double[] i : d2)
+        for(double[] i : d2){
             for(double j : i)
-                System.out.println(decFormat.format(j));
-        
+                System.out.printf(" %8.4f ", j);
+            System.out.println("");
+        }
         
     }
     
