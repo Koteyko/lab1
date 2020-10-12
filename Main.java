@@ -27,7 +27,7 @@ public class Main {
         
         long[] d = new long[9];
         double[] x = new double[14];
-        double[][] d2 = new double[9][14];
+        double[][] d2 = new double[d.length][x.length];
         
         for(int i=0, j=7; i<d.length; i++, j+=2)
             d[i]=j;
